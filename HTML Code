@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Body Belly - Global Health Resources</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configure custom styles */
+        :root {
+            --primary-color: #006400; /* Primary Green */
+            --secondary-color: #CCFFCC; /* Light Green */
+            --dark-gray: #333;
+        }
+
+        /* Set font */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-gray);
+            background-color: #ffffff;
+        }
+
+        /* --- Custom Scrollbar for better UX --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: var(--secondary-color); }
+
+        /* Style for the Google Translate Widget */
+        #google_translate_element {
+            margin-left: 1rem;
+        }
+        
+        /* The main application view container */
+        .app-view {
+            display: none; /* All views are hidden by default, shown by JS */
+            min-height: calc(100vh - 120px); /* Ensure content area is substantial */
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <marquee>🎉 Mind Body Belly has a NEW Medium blog! 💚 Check it out for unique insights, tips, and stories available NOW! | 💵💴💶💷 Donate to our GoFundMe fundraisers or volunteer your time Mind Body Belly! 🫶 Check out our Donate and Volunteer pages to learn more!</marquee>
+    <!-- HEADER: Fixed at top with Logo and Translate Widget -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-100 px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <!-- Logo and Site Title (Clickable Home Button) -->
+            <button id="nav-home-btn" class="flex items-center text-xl font-bold text-gray-800 transition duration-150 ease-in-out hover:text-green-600">
+                <!-- Custom SVG Logo -->
+                <svg class="w-16 h-16 mr-4" viewBox="0 0 100 100" <!-- Color Variables -->
+    <defs>
+        <!-- Deep Green for Earth/Utensils -->
+        <linearGradient id="GreenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- LAYER 1: Plate (The main shape, light gray/white) -->
+    <circle cx="50" cy="50" r="28" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="2"/>
+    
+    <!-- LAYER 2: Earth (Green fill inside the plate) -->
+    <circle cx="50" cy="50" r="23" fill="url(#GreenGradient)" />
+
+    <!-- LAYER 3: Earth Details (White/Negative Space) - ACCURATE CONTINENTS -->
+    
+    
+    <!-- LAYER 4: Medical Cross (White) - Health Focus - Centered on the Earth -->
+    <!-- Horizontal Bar (Adjusted for smaller radius) -->
+    <rect x="38" y="47" width="24" height="6" rx="1" fill="white"/>
+    <!-- Vertical Bar (Adjusted for smaller radius) -->
+    <rect x="47" y="38" width="6" height="24" rx="1" fill="white"/>
+
+    <!-- LAYER 5: Utensil: Fork (Left) - Green, positioned outside the plate -->
+    <!-- Handle (Slightly tapered) -->
+    <path d="M 10 75 L 14 75 L 16 35 L 8 35 Z" fill="#059669"/>
+    <!-- Tines (More distinct shape) -->
+    <path d="M 8 35 H 16 V 30 H 14 V 35 H 11 V 30 H 13 V 35 H 10 V 30 H 8 Z" fill="#059669"/>
+
+    <!-- LAYER 5: Utensil: Knife (Right) - Green, positioned outside the plate -->
+    <!-- Handle -->
+    <rect x="86" y="35" width="4" height="40" rx="2" fill="#059669" />
+    <!-- Blade (Curved path for a realistic blade shape) -->
+    <path d="M 86 35 L 94 30 C 95 34 95 38 94 40 L 86 40 Z" fill="#059669" />
+                </svg>
+                Mind Body Belly
+            </button>
+        </div>
+        
+        <!-- Navigation Buttons and Google Translate -->
+        <nav class="flex items-center">
+            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+                Select Your Country/Territory
+            </button>
+            <
+            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+                Donate
+            </button>
+            <
+            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+                Volunteer
+            </button>
+            <div id="google_translate_element" class="ml-4"></div>
+        </nav>
+    </header>
+
+    <!-- --- MAIN CONTENT CONTAINER (App Views) --- -->
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        
+        <!-- 1. HOME VIEW -->
+        <section id="home-view" class="app-view">
+            <div class="bg-green-50 rounded-xl shadow-xl p-8 sm:p-12 text-center border-t-4 border-green-600">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-green-700 mb-4">Mind Body Belly</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">At Mind Body Belly, we believe that everyone deserves access to essential resources and support, regardless of their circumstances (that is why this initiative began!). Our mission is to empower individuals and communities facing food insecurity with the tools and information they need to be healthy and well-fed. We are committed to accessibility by offering various language options and a user-friendly design, ensuring that our resources are inclusive for users from diverse backgrounds. Our platform serves as an educational hub, providing a curated list of critical resources such as hotlines, government websites, and charity organizations websites to enhance awareness and provide vital support. We continuously expand and update our resource database, in order to address the ever-changing needs of the global community.</p>
+                <button onclick="showView('region-view')" class="bg-green-600 text-white font-semibold py-3 px-8 text-xl rounded-full shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
+                    Find Resources Now
+                </button>
+            </div>
+
+            <!-- Core Principles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center border-b-2 border-green-400">
+                    <svg class="w-10 h-10 mx-auto mb-3 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.92 1.19 5 4.06 5 7.41 0 3.87-2.64 7.14-6.1 7.93z"/></svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Global Reach</h3>
+                    <p class="text-gray-500 text-sm">Country/territory-specific resources for diverse communities worldwide.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center border-b-2 border-green-400">
+                    <svg class="w-10 h-10 mx-auto mb-3 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 11c1.66 0 2.99-1.34 2.99-3S13.66 5 12 5 9.01 6.34 9.01 8s1.33 3 2.99 3zm7 2h-4c-1.66 0-3 1.34-3 3v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55.45-1 1-1h4c.55 0 1-.45 1-1s-.45-1-1-1zM7 13c-1.66 0-3 1.34-3 3v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55.45-1 1-1h4c.55 0 1-.45 1-1s-.45-1-1-1H7z"/></svg>
+                    <h3 class="text-xl font-semibold text-gray-800">People Focused</h3>
+                    <p class="text-gray-500 text-sm">Find health guidance specifically for those facing nutritional and hunger challenges.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center border-b-2 border-green-400">
+                    <svg class="w-10 h-10 mx-auto mb-3 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V21h7v-7h2v7h7v-9.82l4-2.18-11-6zm-2 16H8v-7h4v7h-2z"/></svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Cultural Awareness</h3>
+                    <p class="text-gray-500 text-sm">Respectful approaches that honor cultural beliefs, traditions, and nuances.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center border-b-2 border-green-400">
+                    <svg class="w-10 h-10 mx-auto mb-3 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20 18C21.1 18 22 17.1 22 16V6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V16C2 17.1 2.9 18 4 18H0V20H24V18H20M4 6H20V16H4V6Z"/></svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Online Access</h3>
+                    <p class="text-gray-500 text-sm">Digital resources available anytime, anywhere via the internet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. REGION SELECTION VIEW -->
+        <section id="region-view" class="app-view">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Select Your Region</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Region Cards -->
+                <button onclick="showCountryList('North America')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">North America</button>
+                <button onclick="showCountryList('South America')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">South America</button>
+                <button onclick="showCountryList('Africa')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">Africa</button>
+                <button onclick="showCountryList('Europe')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">Europe</button>
+                <button onclick="showCountryList('Asia')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">Asia</button>
+                <button onclick="showCountryList('Oceania')" class="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-200 transform hover:scale-[1.01] text-2xl font-semibold text-green-700">Oceania</button>
+            </div>
+        </section>
+
+        <!-- 3. COUNTRY/TERRITORY LIST VIEW (Dynamic) -->
+        <section id="country-list-view" class="app-view">
+            <button onclick="showView('region-view')" class="text-green-600 hover:text-green-800 font-medium mb-4 flex items-center transition duration-150">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Regions
+            </button>
+            <h2 id="country-list-title" class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2"></h2>
+            <div id="country-list-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Country/Territory buttons rendered here by JS -->
+            </div>
+        </section>
+
+        <!-- 4. COUNTRY/TERRITORY RESOURCE PAGE VIEW (Dynamic) -->
+        <section id="country-page-view" class="app-view">
+            <button onclick="showView('region-view')" class="text-green-600 hover:text-green-800 font-medium mb-4 flex items-center transition duration-150">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back to Regions
+            </button>
+            <h2 id="country-page-title" class="text-4xl font-extrabold text-green-700 mb-4"></h2>
+            <p id="country-page-description" class="text-lg italic text-gray-600 mb-6"></p>
+
+            <div id="country-resource-content" class="space-y-8">
+                <!-- Detailed resources rendered here by JS -->
+            </div>
+            
+            <button onclick="showView('region-view')" class="mt-8 bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-gray-300 transition duration-150">
+                &larr; Return to Region Selection
+            </button>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (Always visible) -->
+    <footer class="bg-gray-800 text-gray-300 p-6 mt-12">
+        <div class="container mx-auto">
+            <h4 class="text-lg font-semibold text-white mb-2">Disclaimer</h4>
+            <p class="text-sm">The information provided on this page is for general informational purposes only and is not intended as medical advice, diagnosis, or treatment. Mind Body Belly makes every effort to ensure the accuracy and reliability of the resources and information presented here; however, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the page content.</p>
+            <ol class="list-decimal list-inside text-xs mt-3 space-y-1">
+                <li><strong>Local Context:</strong> The resources listed are specific to each country/territory. Consult local health authorities or professionals for advice tailored to your circumstances.</li>
+                <li><strong>Resource Verification:</strong> We recommend users independently verify any information before relying on it.</li>
+                <li><strong>Third-Party Links:</strong> Mind Body Belly is not responsible for the content or practices of any linked sites. To report a resource, please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUcvibok275c8JrQeCCuB8zik6eXOuew9yiMF6aWr-awocTw/viewform?usp=dialog" target="_blank"><u>form</u></a>.</li>
+                <li><strong>Updates and Changes:</strong> Information is subject to change without notice. To suggest a change, please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCfb0luoTTT-INsZrWTp2gUcVXy1Tirdb9mFIU-MrwDdwEVw/viewform?usp=header" target="_blank"><u>form</u></a>.</li>
+                <li><strong>Emergency Situations:</strong> If you or someone you know is experiencing a medical emergency, please contact local emergency services immediately.</li>
+            </ol>
+            <p style="margin-bottom: 1em;">   </p>
+            <p class="text-sm">Any other questions? Please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScs2Mk8xyJTqQ28ma5iL5BAc-l1HO30SsZjvVKqEIxqyAWwkw/viewform?usp=publish-editor" target="_blank"><u>form</u></a> to contact Mind Body Belly.</p>
+        </div>
+    </footer>
+
+    <!-- --- GOOGLE TRANSLATE SCRIPT --- -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <!-- --- JAVASCRIPT FOR APPLICATION LOGIC AND DATA --- -->
+    <script>
+        // --- APPLICATION DATA ---
+        // All descriptions and USA resources restored to PDF content.
+        // All other countries expanded to 10+ resources, prioritized by emergency/government first.
+        const ALL_REGIONS_DATA = {
+            "North America": [
+                {
+                    name: "Canada",
+                    description: "Canada is a country in North America and is located north of the United States of America. Known for hockey & being cold.",
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Canada.", phone: "911" },
+                        { name: "Government of Canada", info: "Official portal for federal government services and information.", website: "https://www.canada.ca/" },
+                        { name: "988 Suicide & Crisis Lifeline", info: "Connects callers with trained crisis counselors for mental health support & emergenicies.", phone: "988" },
+                        { name: "Health Canada", info: "Federal department responsible for health policies and programs.", website: "https://www.canada.ca/en/health-canada.html" },
+                        { name: "Crisis Services Canada", info: "National network of distress and crisis centres, providing support 24/7.", phone: "1-833-456-4566" },
+                        { name: "Food Banks Canada", info: "National charitable organization representing the food bank community.", website: "https://foodbankscanada.ca/" },
+                        { name: "National Eating Disorder Information Centre (NEDIC)", info: "Provides information, resources, referrals and support.", phone: "1-866-633-4220" },
+                        { name: "Service Canada", info: "Provides access to government programs, services, and benefits (e.g., EI, CPP).", website: "https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada.html" },
+                        { name: "Kids Help Phone", info: "24/7 national mental health support for young people.", phone: "1-800-668-6868" },
+                        { name: "Government of Canada - Benefits Finder", info: "Tool to help citizens find federal and provincial benefits they may be eligible for.", website: "https://www.canada.ca/en/sr/go/benefits-finder.html" }
+                    ]
+                },
+                {
+                    name: "Mexico",
+                    description: "Mexico is a North American country, situated south of the United States and north of Guatemala and Belize. Known for tacos and Chichén Itzá.",
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number for Police, Fire, and Medical in Mexico.", phone: "911" },
+                        { name: "Secretaría de Salud (Ministry of Health)", info: "Official Mexican government portal for public health information and programs.", website: "https://www.gob.mx/salud" },
+                        { name: "Línea de la Vida (Life Line)", info: "National helpline for mental health and addiction support.", phone: "800 911 2000" },
+                        { name: "Bancos de Alimentos de México (BAMX)", info: "The national network of food banks in Mexico, coordinating food aid.", website: "https://www.bamx.org.mx/" },
+                        { name: "DIF Nacional (Integral Family Development)", info: "Provides social assistance, especially for vulnerable populations and families.", website: "https://www.gob.mx/dif/" },
+                        { name: "Locatel", info: "Information and personalized assistance service for citizens.", phone: "55 5658 1111" },
+                        { name: "CONADIC (National Commission Against Addiction)", info: "Provides information and referrals for substance abuse treatment.", phone: "55 4631 3000" },
+                        { name: "IMSS (Mexican Social Security Institute)", info: "Provides social security, medical services, and pensions to workers and their families.", website: "https://www.imss.gob.mx/" },
+                        { name: "SEDESOL (Social Development Secretariat)", info: "Now known as Secretariat of Welfare (Bienestar), manages social welfare programs.", website: "https://www.gob.mx/bienestar" },
+                        { name: "National System for Civil Protection", info: "Official information for emergency and disaster preparedness.", website: "https://www.gob.mx/cenapred/" },
+                        { name: "Red Nacional de Refugios (Domestic Violence)", info: "Provides safe shelter and comprehensive support for women and children facing violence.", phone: "800 822 4460" }
+                    ]
+                },
+                {
+                    name: "United States of America",
+                    description: "The United States is a country in North America. Known for the Statue of Liberty and Hollywood movies.",
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in the USA.", phone: "911" },
+                        { name: "988 Suicide & Crisis Lifeline", info: "Connects callers with trained crisis counselors who can provide support during a mental health crisis.", phone: "988" },
+                        { name: "Supplemental Nutrition Assistance Program (SNAP)", info: "The largest federal nutrition assistance program, providing benefits to eligible low-income individuals and families via an Electronic Benefit Transfer (EBT) card.", website: "https://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program" },
+                        { name: "SAMHSA National Helpline", info: "A free, confidential, 24/7, 365-day-a-year treatment referral and information service (in English and Spanish) for individuals and families facing mental and/or substance use disorders.", phone: "1-800-662-HELP (4357)" },
+                        { name: "Women, Infants, and Children (WIC)", info: "A federal assistance program for healthcare and nutrition of low-income pregnant women, breastfeeding women, and to infants and children under the age of five.", website: "https://www.fns.usda.gov/wic" },
+                        { name: "National Domestic Violence Hotline", info: "Provides support for victims of domestic violence.", phone: "1-800-799-SAFE (7233)" },
+                        { name: "The National Hunger Hotline", info: "Connects people in need with food assistance programs, such as soup kitchens, food banks, and government nutrition programs.", phone: "1-866-3-HUNGRY (348-6479)" },
+                        { name: "National Sexual Assault Hotline", info: "Provides support for survivors of sexual violence.", phone: "1-800-656-HOPE (4673)" },
+                        { name: "HealthCare.gov (ACA Marketplace)", info: "Official health insurance marketplace for the Affordable Care Act (ACA).", website: "https://www.healthcare.gov/" },
+                        { name: "Health.gov", info: "Official website of the U.S. Department of Health and Human Services, focusing on health policy, science, and programs.", website: "https://www.health.gov/" },
+                        { name: "Medicaid.gov", info: "Official website of the federally-funded Medicaid program, providing free to low-cost healthcare to low-income Americans.", website: "https://www.medicaid.gov" },
+                        { name: "CDC.gov", info: "Official website of the Centers for Disease Control and Preventation, which provides guidance on disease treatment and prevention, as well as useful data, statistics, and research.", website: "https://www.cdc.gov" },
+                        { name: "Nutrition.gov", info: "Sponsored by the USDA to provide reliable information and resources to help people make healthy food and nutrition choices.", website: "https://www.nutrition.gov" },
+                        { name: "MyPlate.gov", info: "Provides the USDA's food and nutrition guidelines, as exemplified by the MyPlate model.", website: "https://www.myplate.gov" },
+                        { name: "National Council on Aging (NCOA) Benefits CheckUp", info: "Helps older adults find federal, state, and local programs that can help them pay for food, medicine, and more.", website: "https://www.ncoa.org/economic-security/benefits/food-and-nutrition" },
+                        { name: "Vivery", info: "Provides a food finder map, along with other resources, that connects people to food pantries, banks, and hunger-relief agencies in 30+ states.", website: "https://www.vivery.org" },
+                        { name: "Feeding America", info: "Official website of the largest hunger-relief organization in the United States, providing information on their programs to get food assistance, such as food distributions and mobile pantries, as well as resources for SNAP, seniors, and other federal benefits.", website: "https://feedingamerica.org" }
+                    ]
+                }
+            ],
+            "South America": [
+                { 
+                    name: "Argentina", 
+                    description: "Argentina is a South American country known for its tango dancing and wine culture.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Argentina.", phone: "911" },
+                        { name: "National Ministry of Health", info: "Official national health information and public health policies.", website: "https://www.argentina.gob.ar/salud" },
+                        { name: "National Line for Mental Health (Linea 141)", info: "24-hour free service for psychiatric emergencies and suicide prevention.", phone: "141" },
+                        { name: "National Ministry of Social Development", info: "Responsible for social welfare and food programs.", website: "https://www.argentina.gob.ar/desarrollosocial" },
+                        { name: "Line 144 (Gender Violence)", info: "National free, 24/7 line for gender violence consultation, support, and referral.", phone: "144" },
+                        { name: "National Food Banks Network (Red de Bancos de Alimentos)", info: "Coordinates food banks across the country.", website: "https://www.bancodealimentos.org.ar/" },
+                        { name: "PAMI (Comprehensive Medical Attention Program)", info: "Social health insurance for retirees and pensioners.", website: "https://www.pami.org.ar/" },
+                        { name: "ANSeS (National Social Security Administration)", info: "Manages social security and family benefits.", website: "https://www.anses.gob.ar/" },
+                        { name: "Drug Abuse Information Line (Sedronar)", info: "Provides confidential advice and guidance on drug abuse.", phone: "102" },
+                        { name: "Consumer Protection Secretariat", info: "Helps with consumer rights, including food and service quality.", website: "https://www.argentina.gob.ar/produccion/defensadelconsumidor" },
+                        { name: "Argentina Health Portal", info: "General information on public hospitals and health centers.", website: "https://www.argentina.gob.ar/salud/establecimientos" }
+                    ]
+                },
+                { 
+                    name: "Brazil", 
+                    description: "Brazil is the largest country in both South and Latin America. Known for the Amazon rainforest and Carnival.", 
+                    resources: [
+                        { name: "Emergency Services (Fire/Ambulance)", info: "Universal number for Fire Brigade and Ambulance (SAMU).", phone: "193" },
+                        { name: "Emergency Services (Police)", info: "Universal number for Military Police.", phone: "190" },
+                        { name: "Unified Health System (SUS)", info: "Brazil's public healthcare system, one of the largest in the world.", website: "https://www.gov.br/saude" },
+                        { name: "CVV (Life Valuation Center)", info: "Provides free, confidential, emotional support and suicide prevention 24/7.", phone: "188" },
+                        { name: "Ministry of Social Development (MDS)", info: "Manages social assistance programs, including Bolsa Família (cash transfer).", website: "https://www.gov.br/cidadania/pt-br/acesso-a-informacao/mds" },
+                        { name: "Bank of Food (Banco de Alimentos)", info: "National network for food donation and distribution.", website: "https://bancodealimentos.org.br/" },
+                        { name: "Disque 100 (Human Rights Hotline)", info: "National hotline for reporting human rights violations, including neglect and violence.", phone: "100" },
+                        { name: "National Health Surveillance Agency (Anvisa)", info: "Regulates food, medicine, and health products.", website: "https://www.gov.br/anvisa" },
+                        { name: "Ministry of Education (FNDE)", info: "Oversees school feeding programs.", website: "https://www.gov.br/fnde" },
+                        { name: "Emergency Assistance and Civil Defense", info: "Provides information on natural disasters and civil defense alerts.", website: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil" },
+                        { name: "National Institute of Social Security (INSS)", info: "Provides retirement, disability, and other social benefits.", website: "https://www.gov.br/inss" }
+                    ]
+                },
+                { 
+                    name: "Chile", 
+                    description: "Chile is a long, narrow country stretching along South America's western edge. Known for the Patagonia mountain range and its quirky shape.", 
+                    resources: [
+                        { name: "Emergency Services (Ambulance)", info: "Emergency medical service number.", phone: "131" },
+                        { name: "Emergency Services (Police)", info: "Carabineros de Chile (Police) emergency number.", phone: "133" },
+                        { name: "Ministry of Health of Chile (MINSAL)", info: "Official government health services and information.", website: "https://www.minsal.cl/" },
+                        { name: "National Suicide Prevention Line (Fono Mayor)", info: "Mental health crisis line, especially for older adults, 24/7.", phone: "800 708 500" },
+                        { name: "Ministry of Social Development and Family", info: "Manages welfare programs and social assistance.", website: "https://www.desarrollosocialyfamilia.gob.cl/" },
+                        { name: "National Food and Nutrition Council (CONPAN)", info: "Coordinates national food and nutrition policies.", website: "https://www.conpan.cl/" },
+                        { name: "SERNAMEG (National Service for Women and Gender Equity)", info: "Provides support and resources for women facing violence.", phone: "1455" },
+                        { name: "Chile Solidario (Social Protection System)", info: "A major social welfare program providing integrated assistance.", website: "https://www.chilesolidario.cl/" },
+                        { name: "Food Bank of Santiago (Banco de Alimentos Santiago)", info: "Local organization supporting hunger relief.", website: "https://bancodealimentos.cl/" },
+                        { name: "Public Health Fund (FONASA)", info: "Manages the public health insurance system.", website: "https://www.fonasa.cl/" },
+                        { name: "Chilean Institute of Public Health (ISP)", info: "Ensures the quality and safety of food and medicines.", website: "https://www.ispch.cl/" }
+                    ]
+                },
+                { 
+                    name: "Colombia", 
+                    description: "Colombia is a country in the northern part of South America. Known for its Latin music scene and coffee.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number in Colombia for all services.", phone: "123" },
+                        { name: "Ministry of Health and Social Protection", info: "Government health and social services and policies.", website: "https://www.minsalud.gov.co/Paginas/default.aspx" },
+                        { name: "National Mental Health Line (Línea de la Esperanza)", info: "Psychological attention and crisis management line.", phone: "106" },
+                        { name: "Colombian Institute of Family Welfare (ICBF)", info: "Focuses on child and family protection, including nutrition programs.", website: "https://www.icbf.gov.co/" },
+                        { name: "Food Bank Association of Colombia (ABACO)", info: "National network of food banks.", website: "https://www.abaco.org.co/" },
+                        { name: "Sisbén (Social Benefits System)", info: "Tool for targeting social investment and benefits to the poorest.", website: "https://www.sisben.gov.co/" },
+                        { name: "National Addiction Hotline", info: "Provides guidance and information on substance abuse treatment.", phone: "Linea 145" },
+                        { name: "Secretariat of Social Integration (Bogotá Example)", info: "Provides city-level social services, including food programs.", website: "https://www.integracionsocial.gov.co/" },
+                        { name: "Ministry of Housing, City and Territory", info: "Involved in programs affecting basic services and infrastructure.", website: "https://minvivienda.gov.co/" },
+                        { name: "Health Insurance Contributory Regime (EPS)", info: "Information on compulsory health insurance.", website: "https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/VS/PP/Regimen-Contributivo.pdf" },
+                        { name: "Red Cross Colombia (Cruz Roja)", info: "Provides disaster relief and humanitarian assistance.", phone: "132" }
+                    ]
+                }
+            ],
+            "Africa": [
+                { 
+                    name: "Ghana", 
+                    description: "Ghana is a country in West Africa. Known for its gold and beautiful coastline.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number in Ghana for all services.", phone: "112" },
+                        { name: "Ghana Health Service", info: "Manages healthcare delivery and public health programs in Ghana.", website: "https://www.ghanahealthservice.org/" },
+                        { name: "Police Emergency", info: "Direct line for police assistance.", phone: "191" },
+                        { name: "Ministry of Gender, Children and Social Protection", info: "Responsible for social welfare, gender issues, and child protection.", website: "https://mogcsp.gov.gh/" },
+                        { name: "Mental Health Authority Ghana", info: "Provides information and services for mental health issues.", website: "https://www.mha.gov.gh/" },
+                        { name: "National Disaster Management Organization (NADMO)", info: "Handles disaster response and management, often including food aid.", website: "https://www.nadmo.gov.gh/" },
+                        { name: "Ghana Food & Drugs Authority (FDA)", info: "Ensures the safety of food and medicines.", website: "https://www.fda.gov.gh/" },
+                        { name: "Ghana Red Cross Society", info: "Humanitarian assistance and community health programs.", website: "https://www.redcrossghana.org/" },
+                        { name: "Domestic Violence & Victim Support Unit (DOVVSU)", info: "Police unit specializing in domestic abuse cases.", phone: "+233 302 770144" },
+                        { name: "National Ambulance Service", info: "Direct line for medical emergencies.", phone: "193" },
+                        { name: "Ministry of Food and Agriculture (MoFA)", info: "Oversees agricultural policy that impacts food security.", website: "https://mofa.gov.gh/" }
+                    ]
+                },
+                { 
+                    name: "Kenya", 
+                    description: "Kenya is a country in East Africa. Known for its wildlife safaris and Maasai culture.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Kenya.", phone: "999" },
+                        { name: "Ministry of Health, Kenya", info: "Provides national health guidelines and manages public hospitals.", website: "https://www.health.go.ke/" },
+                        { name: "Kenya Red Cross Society", info: "Major provider of humanitarian aid, including emergency food and relief.", phone: "+254 703 037000" },
+                        { name: "Mental Health Support Line (Befrienders Kenya)", info: "Provides emotional support and suicide prevention.", phone: "+254 722 178177" },
+                        { name: "National Council for Population and Development (NCPD)", info: "Focuses on family planning and reproductive health.", website: "https://www.ncpd.go.ke/" },
+                        { name: "National Drought Management Authority (NDMA)", info: "Manages drought-related food crises and response.", website: "https://www.ndma.go.ke/" },
+                        { name: "Anti-FGM/Child Abuse Hotline (Childline)", info: "Confidential line for reporting child abuse and FGM.", phone: "116" },
+                        { name: "The National Social Security Fund (NSSF)", info: "Provides basic social security to Kenyans.", website: "https://www.nssf.or.ke/" },
+                        { name: "Kenya Food Bank", info: "NGO dedicated to distributing surplus food to the needy.", website: "https://www.kenyacommunitysupport.org/food-bank" },
+                        { name: "National Gender and Equality Commission (NGEC)", info: "Promotes gender equality and addresses discrimination.", website: "https://www.ngeckenya.org/" },
+                        { name: "Ambulance and Fire Services (Alternative)", info: "Alternative emergency number for Nairobi and other major cities.", phone: "112" }
+                    ]
+                },
+                { 
+                    name: "Morocco", 
+                    description: "Morocco is a North African country. Known vibrant markets and Islamic architecture.", 
+                    resources: [
+                        { name: "Royal Gendarmerie (Emergency)", info: "Emergency service for rural areas.", phone: "177" },
+                        { name: "Emergency Medical Aid (SAMU)", info: "Ambulance and medical assistance.", phone: "15" },
+                        { name: "Ministry of Health and Social Protection (Morocco)", info: "Official health portal and services.", website: "https://www.sante.gov.ma/Pages/default.aspx" },
+                        { name: "Police Emergency", info: "Direct line for urban police assistance.", phone: "19" },
+                        { name: "Mohammed V Foundation for Solidarity", info: "Major charity involved in social and medical assistance.", website: "http://www.fm5.ma/" },
+                        { name: "National Mutual Aid and Social Assistance (Entraide Nationale)", info: "Government agency for social assistance programs.", website: "http://www.entraide.ma/" },
+                        { name: "Morocco Food Bank (Banque Alimentaire)", info: "NGO for food distribution and hunger relief.", website: "https://www.moroccofoodbank.org/" },
+                        { name: "National Center for Mental Health", info: "Government resource for psychiatric and psychological support.", website: "http://www.sante.gov.ma/Dep/DRHS/Documents/centre_national_sante_mentale.pdf" },
+                        { name: "Fire Department Emergency", info: "Direct line for fire services.", phone: "150" },
+                        { name: "High Commission for Planning (HCP)", info: "Provides statistical data on poverty and welfare indicators.", website: "https://www.hcp.ma/" },
+                        { name: "Fondation Lalla Salma (Cancer Prevention)", info: "Provides support and resources for cancer patients and prevention.", website: "https://www.contrelecancer.ma/" }
+                    ]
+                },
+                { 
+                    name: "Nigeria", 
+                    description: "Nigeria is an country in West Africa. Known for its robust economy and being the most populous country on the African continent.", 
+                    resources: [
+                        { name: "National Emergency Management Agency (NEMA)", info: "Coordinates national disaster and emergency response.", phone: "0800 2255 6362" },
+                        { name: "Federal Ministry of Health, Nigeria", info: "Responsible for health sector policy and public health initiatives.", website: "https://health.gov.ng/" },
+                        { name: "Police Emergency (National)", info: "Primary number for police and security emergencies.", phone: "112" },
+                        { name: "National Food Reserve Agency (NFRA)", info: "Government agency managing strategic food reserves to ensure food security.", website: "http://www.nfra.gov.ng/" },
+                        { name: "National Primary Health Care Development Agency (NPHCDA)", info: "Focuses on grassroots healthcare and nutrition programs.", website: "https://nphcda.gov.ng/" },
+                        { name: "Lagos State Mental Health Emergency", info: "Example of a state-level mental health crisis line (Lagos).", phone: "0800 001 0001" },
+                        { name: "Ministry of Humanitarian Affairs, Disaster Management and Social Development", info: "Oversees social investment programs and humanitarian aid.", website: "https://fmhds.gov.ng/" },
+                        { name: "Food Bank Nigeria", info: "NGO dedicated to collecting and distributing food to vulnerable populations.", website: "https://foodbanknigeria.org/" },
+                        { name: "Child Protection/Abuse Hotline", info: "Specific hotline for reporting child abuse and seeking assistance (varies by state, national number pending).", phone: "0803 723 3584" },
+                        { name: "Federal Ministry of Agriculture and Rural Development (FMARD)", info: "Policies related to food production and supply.", website: "https://fmard.gov.ng/" },
+                        { name: "National Identity Management Commission (NIMC)", info: "Provides national identity numbers often required for social benefits.", website: "https://nimc.gov.ng/" }
+                    ]
+                },
+                { 
+                    name: "South Africa", 
+                    description: "South Africa is a country on the southermost tip of Africa. Known for being the 'Cradle of Human Kind' and its racial diversity.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number for Police, Fire, and Ambulance.", phone: "10111" },
+                        { name: "Department of Health, South Africa", info: "Government health services, resources, and policy.", website: "https://www.health.gov.za/" },
+                        { name: "SADAG (SA Depression and Anxiety Group) Suicide Crisis Line", info: "Provides 24-hour support and referral services.", phone: "0800 567 567" },
+                        { name: "SASSA (South African Social Security Agency)", info: "Manages social grants (e.g., child support, disability) and assistance.", website: "https://www.sassa.gov.za/" },
+                        { name: "National GBV (Gender-Based Violence) Command Centre", info: "Toll-free line for victims of gender-based violence.", phone: "0800 428 428" },
+                        { name: "FoodForward SA", info: "Leading food rescue organization connecting food donors to welfare organizations.", website: "https://foodforwardsa.org/" },
+                        { name: "Childline South Africa", info: "24-hour crisis line for children in distress.", phone: "0800 055 555" },
+                        { name: "Department of Social Development", info: "Oversees social welfare services and poverty alleviation.", website: "https://www.dsd.gov.za/" },
+                        { name: "South African National Council on Alcoholism and Drug Dependence (SANCA)", info: "Provides substance abuse treatment referrals.", phone: "011 781 1204" },
+                        { name: "SA Department of Agriculture, Land Reform and Rural Development", info: "Focuses on agricultural development and food security.", website: "https://www.dalrrd.gov.za/" },
+                        { name: "Poison Information Helpline", info: "Emergency line for poisoning advice.", phone: "0861 555 777" }
+                    ]
+                }
+            ],
+            "Europe": [
+                { 
+                    name: "Denmark", 
+                    description: "Denmark is a Nordic country just north of Germany. Known for its hygge lifestyle and LEGO©.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Denmark.", phone: "112" },
+                        { name: "Danish Health Authority (SST)", info: "Government authority for public health, safety, and health promotion.", website: "https://www.sst.dk/" },
+                        { name: "Livslinien (Suicide Prevention)", info: "National telephone and online counseling service for people in suicidal crisis.", phone: "70 201 201" },
+                        { name: "The Danish Food Bank (Fødevarebanken)", info: "Denmark's largest food bank, distributing surplus food to vulnerable groups.", website: "https://www.foedevarebanken.dk/" },
+                        { name: "BørneTelefonen (The Children's Phone)", info: "A free, anonymous counseling service for children and young people.", phone: "116 111" },
+                        { name: "Ministry of Social Affairs and the Elderly", info: "Responsible for social policy, including benefits and welfare.", website: "https://socialudbud.dk/" },
+                        { name: "Borger.dk (Citizen Portal)", info: "Official portal providing access to public sector information and self-service solutions.", website: "https://www.borger.dk/" },
+                        { name: "Kabs (Counselling for Drug and Alcohol Abuse)", info: "Free and anonymous counselling services across Denmark.", phone: "+45 78 47 47 47" },
+                        { name: "The Danish Patient Safety Authority", info: "Oversees patient rights and medical safety.", website: "https://stps.dk/" },
+                        { name: "Danish Agency for International Recruitment and Integration (SIRI)", info: "Assists new arrivals with social and economic integration.", website: "https://www.nyidanmark.dk/" },
+                        { name: "Kræftens Bekæmpelse (Danish Cancer Society)", info: "Provides information and support for cancer patients and families.", website: "https://www.cancer.dk/" }
+                    ]
+                },
+                { 
+                    name: "France", 
+                    description: "France is a Western European country. Known for its fashion scene and the romantic city of Paris.", 
+                    resources: [
+                        { name: "Emergency Services (Medical/Fire)", info: "European universal emergency number (Ambulance/Fire).", phone: "112" },
+                        { name: "Emergency Services (Police)", info: "National emergency number for police.", phone: "17" },
+                        { name: "Santé Publique France", info: "National public health agency, providing information and health surveillance.", website: "https://www.santepubliquefrance.fr/" },
+                        { name: "Suicide Prevention (SOS Amitié)", info: "Voluntary listening service providing anonymous support 24/7.", phone: "09 72 39 40 50" },
+                        { name: "Caisse Nationale des Allocations Familiales (CNAF)", info: "National family allowance fund, manages family, housing, and social benefits.", website: "https://www.caf.fr/" },
+                        { name: "Restos du Cœur", info: "Major charity providing food and social assistance.", website: "https://www.restosducoeur.org/" },
+                        { name: "Violences Femmes Info (Domestic Violence)", info: "National helpline for women victims of violence.", phone: "3919" },
+                        { name: "Assurance Maladie (Health Insurance)", info: "Official website for the French social health insurance system.", website: "https://www.ameli.fr/" },
+                        { name: "Drogues Info Service (Addiction)", info: "Information and advice on drug, alcohol, and tobacco use.", phone: "0 800 23 13 13" },
+                        { name: "Fédération Française des Banques Alimentaires (FFBA)", info: "Federation of French Food Banks.", website: "https://www.banquesalimentaires.org/" },
+                        { name: "Service-Public.fr", info: "Official French administration portal for citizens.", website: "https://www.service-public.fr/" }
+                    ]
+                },
+                { 
+                    name: "Germany", 
+                    description: "Germany is a Central European country. Known for Oktoberfest and its emphasis on engineering.", 
+                    resources: [
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "110" },
+                        { name: "Emergency Services (Fire/Ambulance)", info: "European universal emergency number for Fire and Medical emergencies.", phone: "112" },
+                        { name: "Federal Ministry of Health (BMG)", info: "The national health ministry, responsible for health policy.", website: "https://www.bundesgesundheitsministerium.de/" },
+                        { name: "Telefonseelsorge (Telephone Counselling)", info: "Confidential emotional support and suicide prevention, 24/7.", phone: "0800 1110 111" },
+                        { name: "Tafel Deutschland (Food Banks)", info: "National organization coordinating food banks across Germany.", website: "https://www.tafel.de/" },
+                        { name: "Arbeitsagentur (Federal Employment Agency)", info: "Provides information on unemployment benefits and social assistance (Hartz IV/Bürgergeld).", website: "https://www.arbeitsagentur.de/" },
+                        { name: "Hilfetelefon Gewalt gegen Frauen (Domestic Violence)", info: "National helpline for women affected by violence.", phone: "0800 0116 016" },
+                        { name: "Kassenaerztliche Vereinigungen (KV) (Out-of-hours Medical Service)", info: "Non-emergency doctor on call service.", phone: "116 117" },
+                        { name: "Deutsche Krebshilfe (German Cancer Aid)", info: "Provides advice, information, and support for cancer patients.", website: "https://www.krebshilfe.de/" },
+                        { name: "Aktion Mensch (Social Welfare)", info: "Largest private funding organization for social projects.", website: "https://www.aktion-mensch.de/" },
+                        { name: "Kinder- und Jugendtelefon (Children and Youth Phone)", info: "Counselling line for children and teenagers.", phone: "0800 111 0333" }
+                    ]
+                },
+                { 
+                    name: "Ireland", 
+                    description: "Ireland is a European island country in the North Atlantic. Known for its pub culture and stunning cliffs.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number in Ireland.", phone: "112" },
+                        { name: "Health Service Executive (HSE)", info: "Provides public health and social services and manages healthcare in Ireland.", website: "https://www.hse.ie/" },
+                        { name: "Samaritans (Emotional Support)", info: "Provides confidential emotional support for anyone experiencing distress or suicidal thoughts.", phone: "116 123" },
+                        { name: "Focus Ireland", info: "Aims to prevent and combat homelessness, often providing food and support services.", website: "https://www.focusireland.ie/" },
+                        { name: "TUSLA (Child and Family Agency)", info: "Responsible for improving the well-being and outcomes for children.", website: "https://www.tusla.ie/" },
+                        { name: "Safe Ireland (Domestic Violence)", info: "National support and referral service for victims of domestic violence.", phone: "1800 341 900" },
+                        { name: "Citizens Information Board", info: "Provides information on public services, social welfare entitlements, and personal finance.", website: "https://www.citizensinformation.ie/" },
+                        { name: "ALONE", info: "Supports older people to age at home, including social assistance.", website: "https://alone.ie/" },
+                        { name: "The Food Sharing Network (FoodCloud)", info: "Connects businesses with surplus food to charities.", website: "https://food.cloud/" },
+                        { name: "Money Advice and Budgeting Service (MABS)", info: "Free, confidential service for people experiencing debt and money problems.", website: "https://mabs.ie/" },
+                        { name: "National Drug and Alcohol Helpline (HSE)", info: "Free, confidential information and support on drug and alcohol use.", phone: "1800 459 459" }
+                    ]
+                },
+                { 
+                    name: "Italy", 
+                    description: "Italy is a Southern European country north of the Mediterranean Sea. Known for its pizza and being home to the once-mighty Roman Empire.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "European universal emergency number for Police, Fire, and Medical.", phone: "112" },
+                        { name: "Ministero della Salute (Ministry of Health)", info: "Official national health portal and policy setting.", website: "http://www.salute.gov.it/" },
+                        { name: "Telefono Amico Italia (Suicide Prevention)", info: "Confidential listening service for emotional distress.", phone: "02 727 4354" },
+                        { name: "Istituzioni di Assistenza Sociale (Social Welfare)", info: "Information on state social assistance programs.", website: "http://www.lavoro.gov.it/temi-e-priorita/sociale" },
+                        { name: "Banco Alimentare (Food Bank)", info: "The largest network of food banks in Italy.", website: "https://www.bancoalimentare.it/" },
+                        { name: "Numero Verde Antiviolenza Donna (Domestic Violence)", info: "National toll-free line for support and assistance to women victims of violence.", phone: "1522" },
+                        { name: "INPS (National Institute for Social Security)", info: "Manages pensions, social insurance, and welfare benefits.", website: "https://www.inps.it/" },
+                        { name: "Croce Rossa Italiana (Italian Red Cross)", info: "Provides humanitarian aid and emergency services.", phone: "800 065 510" },
+                        { name: "AIRC (Italian Association for Cancer Research)", info: "Provides information on cancer research and patient support.", website: "https://www.airc.it/" },
+                        { name: "Information on Addictions (Servizio per le Dipendenze - SerD)", info: "Local services providing help for drug and alcohol addiction.", website: "https://www.iss.it/dipendenze" },
+                        { name: "Protezione Civile (Civil Protection)", info: "Handles disaster response and emergencies.", website: "https://www.protezionecivile.gov.it/" }
+                    ]
+                },
+                { 
+                    name: "Portugal", 
+                    description: "Portugal is located on the Iberian Peninsula. Known for its cork production and rich maritime history.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "European universal emergency number.", phone: "112" },
+                        { name: "SNS - Serviço Nacional de Saúde (National Health Service)", info: "Portugal's public healthcare system, official portal.", website: "https://www.sns.gov.pt/" },
+                        { name: "SOS Voz Amiga (Emotional Support)", info: "Confidential emotional support and suicide prevention line.", phone: "21 354 45 45" },
+                        { name: "Direção-Geral da Saúde (DGS)", info: "General Directorate of Health, responsible for public health regulations.", website: "https://www.dgs.pt/" },
+                        { name: "Banco Alimentar Contra a Fome (Food Bank)", info: "Major national food bank network.", website: "https://bancoalimentar.pt/" },
+                        { name: "Linha Nacional de Emergência Social (Social Emergency Line)", info: "Provides urgent support for social emergency situations (homelessness, domestic violence).", phone: "144" },
+                        { name: "Instituto da Segurança Social (ISS)", info: "Manages social security, pensions, and welfare benefits.", website: "https://www.seg-social.pt/" },
+                        { name: "Linha de Aconselhamento Psicológico (Psychological Counselling)", info: "A free, confidential line for psychological support.", phone: "808 246 909" },
+                        { name: "Food Safety Authority (ASAE)", info: "Ensures consumer safety in food and non-food products.", website: "https://www.asae.gov.pt/" },
+                        { name: "Apoio à Vítima (APAV)", info: "Portuguese Association for Victim Support, including domestic violence.", phone: "116 006" },
+                        { name: "Cáritas Portuguesa", info: "Major charity providing social assistance and poverty relief.", website: "https://www.caritas.pt/" }
+                    ]
+                },
+                { 
+                    name: "Spain", 
+                    description: "Spain is a country on the Iberian Peninsula in Western Europe. Known for its churros and flamenco dancing.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "European universal emergency number for Police, Fire, and Medical.", phone: "112" },
+                        { name: "Ministerio de Sanidad (Ministry of Health)", info: "Official Spanish government health information and policy.", website: "https://www.sanidad.gob.es/" },
+                        { name: "Teléfono de la Esperanza (The Hope Line)", info: "24-hour crisis intervention and suicide prevention line.", phone: "717 003 717" },
+                        { name: "Servicios Sociales (Local Social Services)", info: "Local resources for welfare benefits, food aid, and housing assistance.", website: "https://www.mscbs.gob.es/ssi/serviciosSociales/home.htm" },
+                        { name: "Federación Española de Bancos de Alimentos (FESBAL)", info: "National federation of food banks.", website: "https://www.bancosdeali-mentos.es/" },
+                        { name: "016 (Gender Violence Hotline)", info: "Free, confidential number for victims of gender-based violence (does not appear on phone bill).", phone: "016" },
+                        { name: "Instituto Nacional de la Seguridad Social (INSS)", info: "Manages social security and welfare benefits.", website: "https://www.seg-social.es/" },
+                        { name: "Cruz Roja Española (Spanish Red Cross)", info: "Provides humanitarian aid and social inclusion programs.", phone: "900 22 11 22" },
+                        { name: "Line of Help for Addiction (Drogas)", info: "Provides anonymous information and support on drug abuse.", phone: "900 844 000" },
+                        { name: "Salud Pública (Public Health)", info: "Information on public health campaigns, food safety, and disease prevention.", website: "https://www.mscbs.gob.es/profesionales/saludPublica/home.htm" },
+                        { name: "Plan Nacional sobre Drogas (PNSD)", info: "National strategy and resources on addiction.", website: "http://www.pnsd.sanidad.gob.es/" }
+                    ]
+                },
+                { 
+                    name: "Switzerland", 
+                    description: "Switzerland is a Central European country. Known for its chocolate and neutrality.", 
+                    resources: [
+                        { name: "Emergency Services (Ambulance)", info: "Direct line for medical emergencies.", phone: "144" },
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "117" },
+                        { name: "Federal Office of Public Health (FOPH)", info: "Switzerland's central health authority and information source.", website: "https://www.bag.admin.ch/bag/en/home.html" },
+                        { name: "Die Dargebotene Hand (The Helping Hand)", info: "Confidential emotional support and suicide prevention (Number 143).", phone: "143" },
+                        { name: "Caritas Switzerland", info: "Major charity providing social counseling and assistance for people in poverty.", website: "https://www.caritas.ch/" },
+                        { name: "Schweizer Tafel (Food Bank)", info: "Collects surplus food and distributes it to social institutions.", website: "https://www.schweizertafel.ch/" },
+                        { name: "Pro Juventute (Child and Youth Support)", info: "Counselling and support for children and parents.", phone: "147" },
+                        { name: "Swiss Social Security System (BSV/OFAS)", info: "Information on federal social insurance, including AHV/IV/EL.", website: "https://www.bsv.admin.ch/bsv/en/home.html" },
+                        { name: "Zentralstelle für Suchtfragen (Addiction Info)", info: "Central office for addiction issues, providing resources and contacts.", website: "https://www.sucht-info.ch/" },
+                        { name: "Federal Social Insurance Office (FSIO)", info: "Manages old-age, survivors', and disability insurance.", website: "https://www.bsv.admin.ch/bsv/en/home.html" },
+                        { name: "Frauenhäuser Schweiz (Women's Shelters)", info: "Provides contact information for domestic violence shelters.", website: "https://www.frauenhaeuser.ch/" }
+                    ]
+                },
+                { 
+                    name: "Türkiye", 
+                    description: "Türkiye is a country bridging the Middle East and Southeastern Europe. Known for the stunning Hagia Sophia in Istanbul and bazaars.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "European universal emergency number, integrating all services.", phone: "112" },
+                        { name: "Ministry of Health, Türkiye (Sağlık Bakanlığı)", info: "Official health service portal and health policy information.", website: "https://www.saglik.gov.tr/" },
+                        { name: "Suicide Prevention/Mental Health Line (Alo 182)", info: "Provides psychological counseling and appointment booking for health services.", phone: "182" },
+                        { name: "Social Assistance and Solidarity Foundation (SYDV)", info: "Provides social and financial aid to needy citizens.", website: "http://www.sydv.gov.tr/" },
+                        { name: "AFAD (Disaster and Emergency Management Authority)", info: "Coordinates disaster relief and humanitarian assistance, including food aid.", website: "https://www.afad.gov.tr/" },
+                        { name: "ALO 183 (Social Services Hotline)", info: "Helpline for social services, including domestic violence and child protection.", phone: "183" },
+                        { name: "Turkish Food Bank Network (Gıda Bankacılığı)", info: "Coordinated network of food relief organizations.", website: "https://www.gidabankasi.org/" },
+                        { name: "Social Security Institution (SGK)", info: "Manages social security, pensions, and public health insurance.", website: "https://www.sgk.gov.tr/" },
+                        { name: "Ministry of Family and Social Services", info: "Oversees policies related to family, elderly, and social services.", website: "https://www.aile.gov.tr/" },
+                        { name: "Green Crescent Society (Yeşilay)", info: "Focuses on preventing addiction (alcohol, tobacco, drugs).", phone: "115" },
+                        { name: "Consumer Complaint Line", info: "For reporting issues related to food safety and consumer rights.", phone: "175" }
+                    ]
+                },
+                { 
+                    name: "United Kingdom", 
+                    description: "The United Kingdom (UK) is an island country in Western Europe. Known for its telephone booths and fish and chips.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in the UK.", phone: "999" },
+                        { name: "NHS (National Health Service)", info: "The publicly funded healthcare system for England, providing health information and services.", website: "https://www.nhs.uk/" },
+                        { name: "Samaritans (Emotional Support)", info: "Provides confidential emotional support and suicide prevention 24/7.", phone: "116 123" },
+                        { name: "The Trussell Trust (Food Banks)", info: "Major charity supporting a nationwide network of food banks.", website: "https://www.trusselltrust.org/" },
+                        { name: "GOV.UK", info: "Official UK government portal for benefits, policies, and public services.", website: "https://www.gov.uk/" },
+                        { name: "Refuge National Domestic Abuse Helpline", info: "24-hour helpline for women and children experiencing domestic abuse.", phone: "0808 2000 247" },
+                        { name: "Mind (Mental Health Charity)", info: "Provides advice and support to empower anyone experiencing a mental health problem.", website: "https://www.mind.org.uk/" },
+                        { name: "Turn2us (Poverty and Benefits)", info: "National charity helping people access welfare benefits, grants and support.", website: "https://www.turn2us.org.uk/" },
+                        { name: "Childline (NSPCC)", info: "Free, confidential helpline for children and young people.", phone: "0800 1111" },
+                        { name: "Money Helper (Financial Support)", info: "Provides free, impartial guidance on debt and budgeting.", website: "https://www.moneyhelper.org.uk/" },
+                        { name: "Citizens Advice", info: "Offers free, confidential advice on legal, financial, and consumer issues.", website: "https://www.citizensadvice.org.uk/" }
+                    ]
+                }
+            ],
+            "Asia": [
+                { 
+                    name: "India", 
+                    description: "India is a South Asian country north of the Indian Ocean. Known for being the most populous country in the world and Bollywood films.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "Universal emergency number in India.", phone: "112" },
+                        { name: "Ministry of Health and Family Welfare", info: "Official government health services, policies, and family welfare programs.", website: "https://www.mohfw.gov.in/" },
+                        { name: "Kiran Mental Health Helpline (NIMHANS)", info: "24/7 National Mental Health Rehabilitation Helpline.", phone: "1800 599 0019" },
+                        { name: "National Food Security Portal", info: "Information on the Public Distribution System (PDS) and ration cards.", website: "https://nfsa.gov.in/" },
+                        { name: "Childline India", info: "24-hour national emergency helpline for children in distress.", phone: "1098" },
+                        { name: "Integrated Child Development Services (ICDS)", info: "Government program providing food, preschool education, and primary healthcare to children and mothers.", website: "https://icds-wcd.nic.in/" },
+                        { name: "Women Helpline (Domestic Violence)", info: "National emergency line for women facing violence.", phone: "181" },
+                        { name: "Food Safety and Standards Authority of India (FSSAI)", info: "Ensures food safety and quality across the country.", website: "https://www.fssai.gov.in/" },
+                        { name: "PM-JAY (Ayushman Bharat Yojana)", info: "National Health Protection Scheme for poor and vulnerable families.", website: "https://pmjay.gov.in/" },
+                        { name: "Red Cross Society of India", info: "Provides humanitarian aid and disaster response.", website: "https://indianredcross.org/" },
+                        { name: "Ministry of Social Justice and Empowerment", info: "Manages social welfare schemes for vulnerable groups.", website: "https://socialjustice.gov.in/" }
+                    ]
+                },
+                { 
+                    name: "Indonesia", 
+                    description: "Indonesia is a Southeast Asian state. Known for its thousands of volcanic islands and tropical weather.", 
+                    resources: [
+                        { name: "Emergency Services (Police/Ambulance/Fire)", info: "Universal emergency number in Indonesia.", phone: "112" },
+                        { name: "Ministry of Health of Indonesia (Kemenkes)", info: "Responsible for health policy and public healthcare management.", website: "https://www.kemkes.go.id/" },
+                        { name: "Mental Health Call Center", info: "Provides psychological consultation and support.", phone: "021 500 454" },
+                        { name: "Ministry of Social Affairs (Kemensos)", info: "Manages social assistance programs, including poverty alleviation and aid.", website: "https://kemensos.go.id/" },
+                        { name: "Layanan Darurat Kekerasan Perempuan dan Anak (Women/Child Violence)", info: "Emergency service for victims of violence.", phone: "119" },
+                        { name: "Food Bank Indonesia (FoBI)", info: "NGO dedicated to distributing food to vulnerable communities.", website: "https://fobi.or.id/" },
+                        { name: "BPJS Kesehatan (Social Security for Health)", info: "Information on Indonesia's National Health Insurance scheme.", website: "https://bpjs-kesehatan.go.id/" },
+                        { name: "Badan Pengawas Obat dan Makanan (BPOM)", info: "National Agency of Drug and Food Control.", website: "https://pom.go.id/" },
+                        { name: "National Disaster Management Agency (BNPB)", info: "Coordinates disaster response, including emergency food aid.", website: "https://bnpb.go.id/" },
+                        { name: "Indonesia Red Cross (PMI)", info: "Provides humanitarian and health services.", website: "https://www.pmi.or.id/" },
+                        { name: "Ministry of Village, Disadvantaged Regions and Transmigration", info: "Focuses on development and welfare in rural areas.", website: "https://www.kemendesa.go.id/" }
+                    ]
+                },
+                { 
+                    name: "Japan", 
+                    description: "Japan is an island state in East Asia. Known for kawaii and cherry blossoms.", 
+                    resources: [
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "110" },
+                        { name: "Emergency Services (Fire/Ambulance)", info: "Direct line for medical and fire emergencies.", phone: "119" },
+                        { name: "Ministry of Health, Labour and Welfare (MHLW)", info: "Official health, labour, and welfare programs and information.", website: "https://www.mhlw.go.jp/english/" },
+                        { name: "Inochi no Denwa (Lifeline - Suicide Prevention)", info: "Confidential emotional support hotline.", phone: "0570 783 556" },
+                        { name: "Second Harvest Japan", info: "Japan's first food bank, distributing food to welfare agencies.", website: "https://2hj.org/english/" },
+                        { name: "Public Health Centers (Hokenjo)", info: "Local centers providing health consultations and social support.", website: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/hokenjo.html" },
+                        { name: "Social Welfare Assistance Office (Kosei Jigyodan)", info: "Provides information on social welfare programs and benefits.", website: "http://www.k-jigyo.com/" },
+                        { name: "Child Guidance Centers", info: "Provides support and consultation on child abuse and family issues.", phone: "189" },
+                        { name: "Hello Work (Employment Services)", info: "Provides employment assistance which is crucial for financial stability.", website: "https://www.mhlw.go.jp/english/policy/employ-labor/hellowork/" },
+                        { name: "Japan Consumers' Association", info: "Provides advice on consumer rights, including food safety.", website: "http://www.jca.apc.org/en/index.html" },
+                        { name: "National Domestic Violence Counseling Hotline", info: "Provides anonymous counseling for domestic violence.", phone: "0570 041 892" }
+                    ]
+                },
+                { 
+                    name: "Malaysia", 
+                    description: "Malaysia is a Southeast Asian state. Known for its street food and the mighty Petronas Twin Towers.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "Universal emergency number in Malaysia.", phone: "999" },
+                        { name: "Ministry of Health Malaysia (KKM)", info: "Provides healthcare services, health information, and policies.", website: "https://www.moh.gov.my/" },
+                        { name: "Talian Kasih (Caring Line)", info: "24-hour helpline for social issues, including child protection, domestic violence, and welfare.", phone: "15999" },
+                        { name: "Ministry of Women, Family and Community Development", info: "Oversees social welfare, family development, and poverty eradication programs.", website: "https://www.kpwkm.gov.my/" },
+                        { name: "The Food Bank Malaysia (KFM)", info: "National food waste reduction and food distribution program.", website: "https://www.foodbank.my/" },
+                        { name: "Befrienders Malaysia (Emotional Support)", info: "Provides emotional support for people who are lonely or in despair.", phone: "03 7627 2929" },
+                        { name: "Social Welfare Department (JKM)", info: "Provides social assistance, including financial and in-kind aid.", website: "https://www.jkm.gov.my/" },
+                        { name: "National Cancer Council (MAKNA)", info: "Provides financial and emotional support to cancer patients.", website: "https://makna.org.my/" },
+                        { name: "Drug Abuse Prevention Agency (AADK)", info: "Provides rehabilitation and prevention programs for substance abuse.", website: "https://www.adk.gov.my/" },
+                        { name: "National Disaster Management Agency (NADMA)", info: "Coordinates national disaster response and relief.", website: "https://www.nadma.gov.my/" },
+                        { name: "Malaysian Red Crescent Society (MRCS)", info: "Provides humanitarian services, including first aid and community health.", website: "https://www.redcrescent.org.my/" }
+                    ]
+                },
+                { 
+                    name: "Philippines", 
+                    description: "The Philippines is a Southeast Asian archipelago. Known for its lagoons and being a top exporter of nurses.", 
+                    resources: [
+                        { name: "Emergency Services (National)", info: "Universal emergency number in the Philippines.", phone: "911" },
+                        { name: "Department of Health (DOH)", info: "National health policy and program management, including health facilities.", website: "https://www.doh.gov.ph/" },
+                        { name: "National Center for Mental Health (NCMH) Crisis Hotline", info: "24/7 crisis line for emotional and psychological support.", phone: "0917 899 8723" },
+                        { name: "Department of Social Welfare and Development (DSWD)", info: "Manages social protection programs, including conditional cash transfers (4Ps) and emergency food aid.", website: "https://www.dswd.gov.ph/" },
+                        { name: "Department of Agriculture (DA)", info: "Oversees agricultural policy and food production to ensure food stability.", website: "https://www.da.gov.ph/" },
+                        { name: "Philippine National Police (PNP) Hotline", info: "Direct emergency line for police assistance.", phone: "117" },
+                        { name: "Philippine Red Cross", info: "Provides humanitarian services, disaster relief, and health services.", website: "https://redcross.org.ph/" },
+                        { name: "Food and Nutrition Research Institute (FNRI)", info: "Primary research arm of the government on food and nutrition.", website: "http://www.fnri.dost.gov.ph/" },
+                        { name: "Philippine Commission on Women (PCW)", info: "Provides resources and support for women's rights and violence prevention.", website: "https://www.pcw.gov.ph/" },
+                        { name: "National Telehealth Center (NTC)", info: "Provides remote medical advice and consultation.", website: "https://ntc.upm.edu.ph/" },
+                        { name: "Child Protection Hotline (DSWD)", info: "For reporting cases of child abuse and neglect.", phone: "163" }
+                    ]
+                },
+                { 
+                    name: "Singapore", 
+                    description: "Singapore is a global financial center and city-state in East Asia. Known for its small size and strategic location by the Strait of Malacca.", 
+                    resources: [
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "999" },
+                        { name: "Emergency Services (Ambulance/Fire)", info: "Direct line for medical and fire emergencies.", phone: "995" },
+                        { name: "Ministry of Health, Singapore (MOH)", info: "Responsible for public health and the healthcare system.", website: "https://www.moh.gov.sg/" },
+                        { name: "Samaritans of Singapore (SOS)", info: "24-hour emotional support and suicide prevention hotline.", phone: "1 767" },
+                        { name: "ComCare and Social Assistance", info: "Government financial assistance schemes for low-income citizens.", website: "https://www.msf.gov.sg/comcare" },
+                        { name: "The Food Bank Singapore", info: "NGO dedicated to ending food insecurity and waste.", website: "https://foodbank.sg/" },
+                        { name: "National Anti-Violence Helpline (NAVH)", info: "Helpline for domestic violence, abuse, and neglect.", phone: "1800 777 0000" },
+                        { name: "Agency for Integrated Care (AIC)", info: "Connects people to health and social care services.", website: "https://www.aic.sg/" },
+                        { name: "Community Mental Health Programmes (IMH)", info: "Provides resources and services for mental health in the community.", website: "https://www.imh.com.sg/community/cmhs/" },
+                        { name: "Central Provident Fund (CPF) Board", info: "Manages social security, housing, and healthcare financing.", website: "https://www.cpf.gov.sg/" },
+                        { name: "Council for Third Age (C3A)", info: "Promotes active aging and provides resources for seniors.", website: "https://www.c3a.org.sg/" }
+                    ]
+                },
+                { 
+                    name: "South Korea", 
+                    description: "South Korea is located in East Asia. Known for its K-pop music and skincare obsession.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "Universal emergency number in South Korea.", phone: "119" },
+                        { name: "Ministry of Health and Welfare (MOHW)", info: "Manages health insurance, public health, and social welfare.", website: "http://www.mohw.go.kr/eng/" },
+                        { name: "Lifeline Korea (Suicide Prevention)", info: "24-hour emergency counseling for those facing crisis.", phone: "1588 9191" },
+                        { name: "Ministry of Employment and Labor", info: "Provides information on unemployment benefits and job seeking assistance.", website: "https://www.moel.go.kr/english/" },
+                        { name: "Korea Food Bank (사회복지공동모금회)", info: "National network for food donation and distribution.", website: "http://www.kfba.or.kr/" },
+                        { name: "1366 Women's Emergency Line", info: "24-hour helpline for women in crisis, including domestic violence.", phone: "1366" },
+                        { name: "Health Insurance Review & Assessment Service (HIRA)", info: "Manages the national health insurance system.", website: "https://www.hira.or.kr/eng/main.do" },
+                        { name: "Child Protection Agency (아동보호전문기관)", info: "Provides resources and investigation for child abuse cases.", phone: "112" },
+                        { name: "Ministry of Environment (Food Safety)", info: "Oversees regulations concerning food quality and safety.", website: "http://eng.me.go.kr/" },
+                        { name: "National Center for Mental Health (NCMH)", info: "Provides various mental health support services and information.", website: "https://www.ncmh.go.kr/english/index.jsp" },
+                        { name: "Korea Social Security Information Service (SSIS)", info: "Portal for comprehensive social security information.", website: "https://www.ssis.or.kr/" }
+                    ]
+                },
+                { 
+                    name: "Vietnam (Viet Nam)", 
+                    description: "Vietnam (Viet Nam) is a Southeast Asian country west of the South China Sea. Known for its rice paddies and pho noodles.", 
+                    resources: [
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "113" },
+                        { name: "Emergency Services (Ambulance)", info: "Direct line for medical emergencies.", phone: "115" },
+                        { name: "Ministry of Health of Vietnam (Bộ Y tế)", info: "Official health information and resources, including public hospitals.", website: "https://moh.gov.vn/" },
+                        { name: "Emergency Services (Fire)", info: "Direct line for fire emergencies.", phone: "114" },
+                        { name: "National Hotline for Children (Child Protection)", info: "Toll-free, 24/7 line for children in need of protection.", phone: "111" },
+                        { name: "Ministry of Labour, Invalids and Social Affairs (MOLISA)", info: "Oversees social assistance, employment, and poverty reduction programs.", website: "http://www.molisa.gov.vn/en" },
+                        { name: "Vietnam Red Cross Society (VNRC)", info: "Provides humanitarian aid, disaster relief, and community health services.", website: "http://redcross.org.vn/en" },
+                        { name: "National Institute of Nutrition (NIN)", info: "Key government institution for nutritional research and policy.", website: "http://viendinhduong.vn/" },
+                        { name: "General Department of Preventive Medicine (GDPM)", info: "Focuses on public health, disease prevention, and health promotion.", website: "http://vncdc.gov.vn/en" },
+                        { name: "Social Security Agency (BHXH Vietnam)", info: "Manages social and health insurance programs.", website: "https://www.bhxh.gov.vn/en" },
+                        { name: "Women's Union of Vietnam (Hội Liên hiệp Phụ nữ Việt Nam)", info: "Provides support and legal assistance for women, including domestic violence victims.", website: "http://hoilhpn.org.vn/web/en/" }
+                    ]
+                },
+                { 
+                    name: "Mainland China", 
+                    description: "Mainland China makes up the largest country in East Asia in terms of size and population. Known for the Great Wall of China and manufacturing prowess", 
+                    resources: [
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "110" },
+                        { name: "Emergency Services (Ambulance)", info: "Direct line for medical emergencies.", phone: "120" },
+                        { name: "National Health Commission (NHC)", info: "Responsible for national health policy and administration of healthcare services.", website: "http://en.nhc.gov.cn/" },
+                        { name: "Emergency Services (Fire)", info: "Direct line for fire emergencies.", phone: "119" },
+                        { name: "Beijing Suicide Research and Prevention Center", info: "Major urban psychological crisis intervention line.", phone: "010 8295 1332" },
+                        { name: "Ministry of Civil Affairs", info: "Manages social assistance, disaster relief, and welfare programs (e.g., Dibao minimum living standard guarantee) for Chinese citizens.", website: "http://www.mca.gov.cn/article/english/" },
+                        { name: "National Public Service Platform for Social Assistance", info: "Online portal for welfare programs and social relief.", website: "https://www.mof.gov.cn/en/Default.htm" },
+                        { name: "Women's Federation Hotline (Women's Rights)", info: "Provides counseling and assistance for women's rights and domestic violence.", phone: "12338" },
+                        { name: "China Red Cross", info: "Provides disaster relief and humanitarian services.", website: "http://www.redcross.org.cn/en/index.html" },
+                        { name: "Child Protection Hotline (e.g., Beijing)", info: "Hotline for reporting child abuse (local numbers apply, 110 for severe cases).", phone: "96156" }
+                    ]
+                },
+                { 
+                    name: "Taiwan", 
+                    description: "Taiwan is located off the coast of the Chinese mainland. Known for boba tea and the tall Taipei 101 skyscraper.", 
+                    resources: [
+                        { name: "Emergency Services (Fire/Ambulance)", info: "Direct line for medical and fire emergencies.", phone: "119" },
+                        { name: "Ministry of Health and Welfare (MOHW), Taiwan", info: "Provides public health services and manages social welfare programs.", website: "https://www.mohw.gov.tw/mp-2.html" },
+                        { name: "Suicide Prevention Lifeline (Taiwan Lifeline International)", info: "24-hour emotional support and crisis intervention.", phone: "1995" },
+                        { name: "Emergency Services (Police)", info: "Direct line for police assistance.", phone: "110" },
+                        { name: "Social Assistance and Family Support", info: "Local government agencies provide assistance programs and food aid.", website: "https://www.mohw.gov.tw/cp-16-52-2.html" },
+                        { name: "Domestic Violence & Sexual Assault Hotline", info: "24-hour dedicated helpline for violence victims.", phone: "113" },
+                        { name: "Food Bank Association of Taiwan", info: "NGO coordinating food donation and distribution.", website: "https://www.taiwanfoodbank.org/" },
+                        { name: "National Health Insurance (NHI)", info: "Information on the compulsory health insurance system.", website: "https://www.nhi.gov.tw/english/" },
+                        { name: "Taiwan Consumers' Foundation", info: "Provides consumer protection advice, including food safety.", website: "https://www.consumers.org.tw/en" },
+                        { name: "Taiwan Anti-Drug War Hotline", info: "Provides support and information on substance abuse.", phone: "0800 770 885" },
+                        { name: "Child and Youth Protection Hotline", info: "For reporting and seeking assistance for children in need.", phone: "113" }
+                    ]
+                },
+                { 
+                    name: "Hong Kong", 
+                    description: "Hong Kong is a special administrative region of China, east of Macau. Known for its fusion of British and Chinese culture and rich dining scene.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Hong Kong.", phone: "999" },
+                        { name: "Department of Health, Hong Kong", info: "Official health promotion and disease prevention services.", website: "https://www.dh.gov.hk/" },
+                        { name: "Samaritans Hong Kong (Suicide Prevention)", info: "24-hour confidential emotional support line.", phone: "2896 0000" },
+                        { name: "Social Welfare Department (SWD)", info: "Provides welfare services, financial aid, and family services.", website: "https://www.swd.gov.hk/" },
+                        { name: "Food Angel (惜食堂)", info: "Food assistance program distributing hot meals and food packs.", website: "https://www.foodangel.org.hk/en/" },
+                        { name: "Crisis Line (Domestic Violence)", info: "Provides immediate support and referral for domestic violence.", phone: "2894 8866" },
+                        { name: "The Salvation Army (Social Services)", info: "Provides holistic support, including shelter, family services, and community centers.", website: "https://www.salvationarmy.org.hk/en" },
+                        { name: "Food and Environmental Hygiene Department (FEHD)", info: "Regulates food safety and environmental hygiene.", website: "https://www.fehd.gov.hk/english/" },
+                        { name: "Mental Health Support Hotline (Hospital Authority)", info: "24-hour line for emotional distress and psychiatric emergencies.", phone: "2466 7357" },
+                        { name: "Integrated Family Service Centers", info: "Provides one-stop support for family issues, counseling, and welfare referrals.", website: "https://www.swd.gov.hk/en/index/site_pubsvc/page_family/sub_ifsc/" },
+                        { name: "Labour Department (Employment Assistance)", info: "Provides employment assistance and financial aid related to work.", website: "https://www.labour.gov.hk/eng/public/content2_8.htm" }
+                    ]
+                },
+                { 
+                    name: "Macau", 
+                    description: "Macau is a special administrative region of China, west of Hong Kong. Known for its fusion of Portuguese and Chinese culture and casinos.", 
+                    resources: [
+                        { name: "Emergency Services (Police, Fire, Ambulance)", info: "Universal emergency number in Macau.", phone: "999" },
+                        { name: "Macau Health Bureau (SSM)", info: "Local government health department and public health services.", website: "https://www.ssm.gov.mo/" },
+                        { name: "Macau Red Cross", info: "Provides emergency medical transfer and humanitarian services.", phone: "2833 9959" },
+                        { name: "Social Welfare Bureau (IAS)", info: "Manages social assistance, family support, and welfare programs.", website: "https://www.ias.gov.mo/en/" },
+                        { name: "Caritas Macau (Food Bank & Social Services)", info: "Major charity providing a range of social services including food aid.", website: "https://www.caritas.org.mo/" },
+                        { name: "Macau Federation of Women's Associations", info: "Provides support and counseling for women and families, including domestic violence.", phone: "2835 3307" },
+                        { name: "Social Security Fund (FSS)", info: "Manages social security system, pensions, and sickness benefits.", website: "https://www.fss.gov.mo/en/" },
+                        { name: "Anti-Drug Hotline", info: "Provides confidential advice and support on substance abuse.", phone: "2822 5522" },
+                        { name: "Institute for the Prevention and Treatment of Alcoholism and Drug Abuse (IPTADA)", info: "Government resource for addiction treatment.", website: "https://www.ssm.gov.mo/portal/en/main/home.aspx" },
+                        { name: "Food Safety Centre (Macau)", info: "Ensures the safety and quality of food products.", website: "https://www.foodsafety.gov.mo/en" },
+                        { name: "Macau Youth Volunteers Association", info: "Often coordinates community support and assistance programs.", website: "http://www.ajm-macau.org.mo/" }
+                    ]
+                },
+            ],
+            "Oceania": [
+                { 
+                    name: "Australia", 
+                    description: "Australia is a country and continent in Oceania. Known for its marsupials and the natural beauty that is Uluru.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "Universal emergency number in Australia.", phone: "000" },
+                        { name: "Department of Health and Aged Care", info: "Federal government health and aged care services and policy.", website: "https://www.health.gov.au/" },
+                        { name: "Lifeline Australia", info: "24/7 crisis support and suicide prevention services.", phone: "13 11 14" },
+                        { name: "Foodbank Australia", info: "The largest food relief organisation in Australia.", website: "https://www.foodbank.org.au/" },
+                        { name: "Services Australia (Centrelink)", info: "Manages social security payments (welfare, family, disability benefits).", website: "https://www.servicesaustralia.gov.au/individuals/centrelink" },
+                        { name: "1800RESPECT (Domestic Violence)", info: "24/7 national counseling service for sexual assault and domestic violence.", phone: "1800 737 732" },
+                        { name: "Beyond Blue (Mental Health)", info: "Provides information and support to help everyone achieve their best possible mental health.", phone: "1300 22 4636" },
+                        { name: "National Disability Insurance Scheme (NDIS)", info: "Provides support for people with disability.", website: "https://www.ndis.gov.au/" },
+                        { name: "Kids Helpline", info: "Free, confidential 24/7 online and phone counseling for young people.", phone: "1800 55 1800" },
+                        { name: "Australian Red Cross", info: "Provides community support, disaster relief, and humanitarian services.", website: "https://www.redcross.org.au/" },
+                        { name: "Australian Government - MyGov", info: "Secure way to access government services online (health, tax, welfare).", website: "https://my.gov.au/" }
+                    ]
+                },
+                { 
+                    name: "New Zealand", 
+                    description: "New Zealand is an island country in Oceania. Known for its kiwis and zorbing.", 
+                    resources: [
+                        { name: "Emergency Services (All)", info: "Universal emergency number in New Zealand.", phone: "111" },
+                        { name: "Te Whatu Ora - Health New Zealand", info: "Responsible for New Zealand's public health system and services.", website: "https://www.tewhatuora.govt.nz/" },
+                        { name: "Need to Talk? 1737 (Mental Health)", info: "Free call or text anytime to talk with a trained counselor.", phone: "1737" },
+                        { name: "Work and Income NZ (WINZ)", info: "Provides financial assistance, benefits, and employment support.", website: "https://www.workandincome.govt.nz/" },
+                        { name: "New Zealand Food Network (NZFN)", info: "Collects and distributes bulk surplus food to charities across the country.", website: "https://nzfoodnetwork.org.nz/" },
+                        { name: "Shine Helpline (Domestic Violence)", info: "National free helpline for victims of domestic violence.", phone: "0508 744 633" },
+                        { name: "Ministry of Social Development (MSD)", info: "Oversees social welfare, child protection, and community programs.", website: "https://www.msd.govt.nz/" },
+                        { name: "Healthline", info: "Free advice from trained nurses on health concerns, 24/7.", phone: "0800 611 116" },
+                        { name: "New Zealand Red Cross", info: "Provides disaster relief and community support services.", website: "https://www.redcross.org.nz/" },
+                        { name: "Kidsline", info: "Telephone counseling service for children up to 18 years old.", phone: "0800 54 37 54" },
+                        { name: "ACC (Accident Compensation Corporation)", info: "Provides comprehensive no-fault personal injury coverage for all citizens.", website: "https://www.acc.co.nz/" }
+                    ]
+                }
+            ]
+        };
+        
+        // State variables to track the current view and data
+        let currentView = 'home-view'; 
+        let currentRegion = '';
+
+        // --- CORE VIEW SWITCHING LOGIC ---
+        function showView(viewId) {
+            const views = document.querySelectorAll('.app-view');
+            views.forEach(view => {
+                view.style.display = 'none';
+            });
+            document.getElementById(viewId).style.display = 'block';
+            currentView = viewId;
+            // Scroll to top when changing views
+            window.scrollTo(0, 0); 
+        }
+
+        // --- NAVIGATION EVENT LISTENERS ---
+        document.getElementById('nav-home-btn').addEventListener('click', () => {
+            showView('home-view');
+        });
+        document.getElementById('nav-resources-btn').addEventListener('click', () => {
+            showView('region-view');
+        });
+
+        // --- REGION LIST GENERATION ---
+        function showCountryList(regionName) {
+            currentRegion = regionName;
+            const countries = ALL_REGIONS_DATA[regionName];
+            const titleElement = document.getElementById('country-list-title');
+            const gridElement = document.getElementById('country-list-grid');
+
+            // Terminology change implemented here:
+            titleElement.textContent = `Select Country/Territory in ${regionName}`;
+            gridElement.innerHTML = ''; // Clear existing buttons
+
+            countries.forEach(country => {
+                const countryId = country.name.replace(/\s/g, '-').toLowerCase();
+                const button = document.createElement('button');
+                button.className = 'bg-white p-4 rounded-lg shadow-md border border-gray-200 hover:border-green-500 hover:shadow-lg transition duration-150 text-gray-700 font-medium text-left';
+                button.textContent = country.name;
+                button.onclick = () => showCountryPage(countryId);
+                gridElement.appendChild(button);
+            });
+
+            showView('country-list-view');
+        }
+
+        // --- COUNTRY PAGE GENERATION ---
+        function showCountryPage(countryId) {
+            let countryData = null;
+            
+            // Find the country data across all regions
+            for (const region in ALL_REGIONS_DATA) {
+                countryData = ALL_REGIONS_DATA[region].find(c => c.name.replace(/\s/g, '-').toLowerCase() === countryId);
+                if (countryData) {
+                    currentRegion = region; // Set current region for back button context
+                    break;
+                }
+            }
+
+            if (!countryData) {
+                console.error("Country/Territory data not found for ID:", countryId);
+                return;
+            }
+
+            // Update Page Title and Description (Terminology change implemented here)
+            document.getElementById('country-page-title').textContent = `${countryData.name} Resources`;
+            document.getElementById('country-page-description').textContent = countryData.description;
+
+            const contentElement = document.getElementById('country-resource-content');
+            contentElement.innerHTML = '';
+
+            // Render Resources
+            if (countryData.resources && countryData.resources.length > 0) {
+                countryData.resources.forEach(resource => {
+                    const resourceBlock = document.createElement('div');
+                    // Style the block to visually represent the priority: Red for Phone/Crisis, Blue for Web/Government
+                    let borderColor = resource.phone ? 'border-red-500' : 'border-green-500';
+                    let phoneIcon = `<svg class="w-4 h-4 mr-1 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>`;
+                    let webIcon = `<svg class="w-4 h-4 mr-1 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>`;
+
+                    resourceBlock.className = `bg-white p-6 rounded-xl shadow-lg border-t-4 ${borderColor}`;
+
+                    let html = `<h3 class="text-xl font-semibold text-gray-800 mb-2">${resource.name}</h3>`;
+                    html += `<p class="text-gray-600 mb-3 text-sm">${resource.info}</p>`;
+                    
+                    if (resource.website) {
+                        html += `<div class="flex items-center text-sm text-green-600 hover:underline mt-2">${webIcon}<a href="${resource.website}" target="_blank" class="font-medium truncate">${resource.website.replace(/https?:\/\//, '')}</a></div>`;
+                    }
+                    if (resource.phone) {
+                        // Use tel: protocol for clickable phone numbers
+                        html += `<div class="flex items-center text-sm text-red-600 font-bold mt-1">${phoneIcon}<a href="tel:${resource.phone.replace(/\s/g, '')}" class="hover:underline">${resource.phone}</a></div>`;
+                    }
+
+                    resourceBlock.innerHTML = html;
+                    contentElement.appendChild(resourceBlock);
+                });
+            } else {
+                contentElement.innerHTML = `<div class="bg-yellow-50 p-6 rounded-xl text-yellow-800">No detailed resources available yet for ${countryData.name}. We are compiling comprehensive data.</div>`;
+            }
+
+            showView('country-page-view');
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if the URL has a hash and route accordingly
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                // If hash is a region (e.g., #North_America), show country list
+                const formattedHash = hash.replace(/_/g, ' ');
+                if (ALL_REGIONS_DATA[formattedHash]) {
+                    showCountryList(formattedHash);
+                } 
+                // If hash is a country/territory (e.g., #united-states-of-america), show country page
+                else if (document.getElementById('country-page-view').dataset.countryId === formattedHash) {
+                    showCountryPage(formattedHash);
+                }
+                // Otherwise, default to home
+                else {
+                    showView('home-view');
+                }
+            } else {
+                showView('home-view');
+            }
+        });
+    </script>
+</body>
+</html>
