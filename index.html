@@ -94,18 +94,15 @@
             <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
                 Select Your Country/Territory
             </button>
-            
-            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
-                About Us
-            </button>
-            
-            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
-                Donate
-            </button>
-
-            <button id="nav-resources-btn" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
-                Volunteer
-            </button>
+            <button onclick="showView('about-us-view')" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+            About Us
+        </button>
+        <button onclick="showView('donate-view')" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+            Donate
+        </button>
+        <button onclick="showView('volunteer-view')" class="bg-green-600 text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-150 ease-in-out">
+            Volunteer
+        </button>
             <div id="google_translate_element" class="ml-4"></div>
         </nav>
     </header>
@@ -191,7 +188,29 @@
                 &larr; Return to Region Selection
             </button>
         </section>
+<!-- 5. ABOUT US VIEW -->
+<section id="about-us-view" class="app-view">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">About Us</h2>
+    <p class="text-lg text-gray-600">
+        Welcome to the About Us page. Here, you'll learn more about Mind Body Belly's mission, values, and team.
+    </p>
+</section>
 
+<!-- 6. DONATE VIEW -->
+<section id="donate-view" class="app-view">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Donate to Mind Body Belly</h2>
+    <p class="text-lg text-gray-600">
+        Your generous donations help us expand our reach and help more people worldwide. Thank you for considering supporting our cause!
+    </p>
+</section>
+
+<!-- 7. VOLUNTEER VIEW -->
+<section id="volunteer-view" class="app-view">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Volunteer with Us</h2>
+    <p class="text-lg text-gray-600">
+        Join us as a volunteer and make a difference in the lives of people in need. Learn more about our opportunities here.
+    </p>
+</section>
     </main>
 
     <!-- FOOTER (Always visible) -->
