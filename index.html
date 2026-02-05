@@ -39,10 +39,15 @@
             min-height: calc(100vh - 120px); /* Ensure content area is substantial */
             padding-bottom: 4rem;
         }
+        .center-image {
+            display: block;     /* Change the image from inline to block */
+            margin-left: auto;  /* Set left margin to auto */
+            margin-right: auto; /* Set right margin to auto */
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <marquee>🎉 MindBodyBelly has a NEW Medium blog! 📝 Check it out for unique insights, tips, and stories available NOW! | 💵 💴 💶 💷 Donate to our GoFundMe fundraisers or volunteer your time to MindBodyBelly! 🫶 Check out our Donate and Volunteer pages to learn more!</marquee>
+    <marquee></marquee>
     <!-- HEADER: Fixed at top with Logo and Translate Widget -->
     <header class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-100 px-6 py-3 flex justify-between items-center">
         <div class="flex items-center space-x-4">
@@ -106,12 +111,14 @@
             <div id="google_translate_element" class="ml-4"></div>
         </nav>
     </header>
-
+    <!-- --- TOP IMAGE --- -->
     <!-- --- MAIN CONTENT CONTAINER (App Views) --- -->
     <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 mt-6">
         
         <!-- 1. HOME VIEW -->
         <section id="home-view" class="app-view">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kids in Africa" style="width: 35%" class="center-image">
+            <p class="text-4xl sm:text-5xl font-extrabold text-white-700 mb-4"></p>
             <div class="bg-green-50 rounded-xl shadow-xl p-8 sm:p-12 text-center border-t-4 border-green-600">
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-green-700 mb-4">MindBodyBelly</h1>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Your hub for mental health, physical health, and hunger resources.</p>
@@ -147,6 +154,7 @@
 
         <!-- 2. REGION SELECTION VIEW -->
         <section id="region-view" class="app-view">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/021/437/150/small/world-map-green-color-world-map-template-with-continents-north-and-south-america-europe-and-asia-africa-and-australia-free-png.png" alt="Green world map" style="width: 50%" class="center-image">
             <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Select Your Region</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Region Cards -->
@@ -191,55 +199,54 @@
 <!-- 5. ABOUT US VIEW -->
 <section id="about-us-view" class="app-view">
     <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">About Us</h2>
-    <p class="text-lg text-gray-600">  </p>
-    <p class="text-lg text-gray-600">
+    
+    <p class="text-lg text-gray-600" style="margin-bottom: 30px;">
         Welcome to the About Us page. Here, you'll learn more about MindBodyBelly's mission, values, and team.
     </p>
-    <p class="text-lg text-gray-600">  </p>
-    <h3 class="text-xl font-semibold text-gray-800">Who We Are</h3>
-    <p class="text-lg text-gray-600">  </p>
-    <p class="text-lg text-gray-600">
+    
+    <h3 class="text-xl font-semibold text-gray-800" style="margin-bottom: 30px;">Who We Are</h3>
+    
+    <p class="text-lg text-gray-600" style="margin-bottom: 30px;">
         MindBodyBelly, founded in December of 2025, is a social iniative with the goal of providing informational and educational resources to those in need as well as volunteers, organizations, and others who serve communities around the world. We focus on assisting in health and hunger crises, and we have curated resources for over 30 countries so far.
     </p>
-    <p class="text-lg text-gray-600">  </p>
-    <h3 class="text-xl font-semibold text-gray-800">Our Story</h3>
-    <p class="text-lg text-gray-600">  </p>
-    <p class="text-lg text-gray-600">
+    
+    <h3 class="text-xl font-semibold text-gray-800" style="margin-bottom: 30px;">Our Story</h3>
+    
+    <p class="text-lg text-gray-600" style="margin-bottom: 15px;">
         Dear Friends,
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         I am honored to share with you the journey that led to the creation of MindBodyBelly, a platform born from both personal experiences and a vision for a more equitable world.
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         During my time shadowing doctors, I witnessed how the poorest in our communities often struggle to lead healthy lives. Simultaneously, my volunteering at my local food pantry opened my eyes to the great struggle to access food, which can seem like a luxury with today's inflating prices and cut-downs on government benefits.
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         Working at the pantry's Help Desk, I encountered countless individuals seeking assistance, each with a unique story but a common need for support. I often wished for a comprehensive directory of resources—a place where I could easily direct those in need to the right support services.
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         As I watched the news and observed places far from my home, I understood that health and hunger challenges were not isolated but part of a larger, global issue affecting both developed and developing regions of the planet. This realization fueled my desire to create a solution that transcends borders and brings essential resources to one accessible platform.
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         MindBodyBelly was founded with this in mind. We aim to empower and support individuals, volunteers, and organizations by providing reliable, centralized information—a beacon of hope and guidance in times of need.
     </p>
-    <p class="text-lg text-gray-600">  </p>
+    
     <p class="text-lg text-gray-600">
         Thank you for joining us on this journey. Together, we can make a meaningful difference in the lives of many, ensuring that everyone has access to the resources they need to thrive.
     </p>
-    <p class="text-lg text-gray-600">  </p>
-    <p class="text-lg text-gray-600">
+    
+    <p class="text-lg text-gray-600" style="margin-bottom: 15px; margin-top: 15px">
         Warmest regards,
     </p>
-    <p class="text-lg text-gray-600">  </p>
-    <p class="text-lg text-gray-600">
+    
+    <p class="text-lg text-gray-600" style="margin-bottom: 15px;">
         Ishan
     </p>
-    <p class="text-lg text-gray-600"><  /p>
     <p class="text-lg text-gray-600">
         Founder & CEO of MindBodyBelly
     </p>
@@ -247,14 +254,16 @@
 
 <!-- 6. DONATE VIEW -->
 <section id="donate-view" class="app-view">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Donate to MindBodyBelly</h2>
+    <img src="https://cdn-icons-png.freepik.com/512/240/240440.png" alt="Cursor clicking on donate button" style="width: 20%" class="center-image">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Donate to the Causes We Support</h2>
     <p class="text-lg text-gray-600">
-        Your generous donations help us expand our reach and help more people worldwide. Thank you for considering supporting our cause!
+        Your generous donations help us expand our impact and help more people worldwide. Thank you for considering supporting the causes we care about!
     </p>
 </section>
 
 <!-- 7. VOLUNTEER VIEW -->
 <section id="volunteer-view" class="app-view">
+    <img src="https://cdn-icons-png.freepik.com/512/240/240457.png" alt="Hands holding a green heart" style="width: 20%" class="center-image">
     <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">Volunteer with Us</h2>
     <p class="text-lg text-gray-600">
         Join us as a volunteer and make a difference in the lives of people in need. Learn more about our opportunities here.
